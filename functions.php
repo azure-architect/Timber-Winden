@@ -39,6 +39,7 @@ add_action( 'wp_enqueue_scripts', function() {
     
     //optional: lottie (maybe...)
     //wp_enqueue_script( 'lottie-player', 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', array(), null, array('strategy' => 'defer', 'in_footer' => true)  );
+    wp_enqueue_script( 'alpine', 'https://unpkg.com/alpinejs', array(), null, array('strategy' => 'defer', 'in_footer' => false)  );
 
     //optional: rellax 
     //wp_enqueue_script( 'rellax', 'https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js', array(), null, array('strategy' => 'defer', 'in_footer' => true)  );
