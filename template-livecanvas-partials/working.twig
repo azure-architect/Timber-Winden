@@ -1,0 +1,20 @@
+    <ul>
+            <!-- {{ include('@partials/debug.twig') }} -->
+            <li>
+                <article>
+                    <img src="{{ article.thumbnail.src('medium') }}" alt="{{ article.thumbnail.alt }}" width="{{ article.thumbnail.width }}" height="{{ article.thumbnail.height }}" loading="lazy">
+
+                    <h2>
+                        <a href="{{ article.link }}" aria-describedby="desc-{{ article.slug }}">{{ article.title }}</a>
+                    </h2>
+
+                    <p>{{ article.excerpt }}</p>
+
+                    <span id="desc-{{ article.slug }}" aria-hidden="true">Read more</span>
+
+                    <small>By {{ article.author }}</small>
+                </article>
+            </li>
+
+    </ul>
+

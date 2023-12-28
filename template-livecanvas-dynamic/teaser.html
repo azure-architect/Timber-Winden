@@ -1,0 +1,12 @@
+
+
+
+<article>
+    {% if article.thumbnail %}
+    <img src="{{ article.thumbnail.src }}" alt="{{ article.thumbnail.alt }}" />
+    {% endif %}
+    <h2>{{ article.title }}</h2>
+    <div>{{ article.content }}</div>
+</article>
+
+
