@@ -1,14 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-    font-family: "ATR";
-    src: url("../fonts/atr.woff2") format('woff2');
+
+
+.here{
+    border: 2px red solid ;
 }
 
-body{
-    font-family: ATR;
-}
 :root {
     --color-visited: #0d6efd;
     --color-primary: slate;

@@ -40,7 +40,8 @@ add_action( 'wp_enqueue_scripts', function() {
     //optional: lottie (maybe...)
     //wp_enqueue_script( 'lottie-player', 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', array(), null, array('strategy' => 'defer', 'in_footer' => true)  );
     wp_enqueue_script( 'alpine', 'https://unpkg.com/alpinejs', array(), null, array('strategy' => 'defer', 'in_footer' => false)  );
-    wp_enqueue_script( 'daisy-ui', 'https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css', array(), null, array('strategy' => 'null', 'in_footer' => false)  );
+    //wp_enqueue_script( 'daisy-ui', 'https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css', array(), null, array('strategy' => 'null', 'in_footer' => false)  );
+    wp_enqueue_script( 'animae', '/js/animae/lib/animae.es.js', array(), null, array('strategy' => 'null', 'in_footer' => false)  );
 
     //optional: rellax 
     //wp_enqueue_script( 'rellax', 'https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js', array(), null, array('strategy' => 'defer', 'in_footer' => true)  );
@@ -78,3 +79,16 @@ add_action( 'admin_notices', function  () {
 add_filter( 'wp_is_application_passwords_available', '__return_false' );
 
 // ADD YOUR CUSTOM PHP CODE DOWN BELOW /////////////////////////
+
+
+
+function my_mime_types($mimes) {
+    // $mimes['svg']   = 'image/svg+xml'; // insecure; do not use! Try https://wordpress.org/plugins/safe-svg/ if you need to upload SVGs
+    $mimes['webp']  = 'image/webp';
+    $mimes['ogg']   = 'audio/ogg';
+    $mimes['woff']  = 'font/woff|application/font-woff|application/x-font-woff|application/octet-stream';
+    $mimes['woff2'] = 'font/woff2|application/octet-stream|font/x-woff2';
+    return $mimes;
+}
+
+add_filter( 'upload_mimes', 'my_mime_types' );

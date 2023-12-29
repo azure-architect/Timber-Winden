@@ -32,7 +32,7 @@ To display the latest 10 posts using Twig, embed the following code in a post or
     'posts_per_page': 10
 } %}
 
-{% set posts = function('get_posts', args) %}
+{% set posts = Post(args) %}
 
 {% for post in posts %}
     <h2 class="text-dark">{{ post.post_title }}</h2>
@@ -81,3 +81,30 @@ Further customization can be achieved by creating Twig templates in the child th
 ## Support
 
 For support, refer to the [Picostrap theme documentation](#PicostrapDocumentationLink) and [Timber's official guides](https://timber.github.io/docs/). For issues specific to this child theme, please use the theme's issue tracker.
+
+## Debug
+For debug support with twig:
+
+Create a file named debug.twig in the partials directory. 
+Add the following to the contents of the file: 
+```angular2html
+<pre><code>
+    {{ function('json_encode', 
+        state, constant('JSON_PRETTY_PRINT')
+) }}
+</code></pre>
+```
+Copy this code anywhere into the page you wish to present debug information. 
+```angular2html
+[agnostic]
+{% set args = {
+'post_type': 'post',
+'posts_per_page': 10 } %}
+{% set posts = Post(args) %}
+{% for post in posts%}
+{% set state = post %}
+{{ include('@partials/debug.twig')}}
+{% endfor %}
+[/agnostic]
+```
+
